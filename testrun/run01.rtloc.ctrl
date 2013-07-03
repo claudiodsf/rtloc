@@ -1,0 +1,75 @@
+#Control file for RTLoc
+
+STA AND3 time/layer.P.AND3.time time/layer.S.AND3.time
+STA AVG3 time/layer.P.AVG3.time time/layer.S.AVG3.time
+STA BEL3 time/layer.P.BEL3.time time/layer.S.BEL3.time
+STA BSC3 time/layer.P.BSC3.time time/layer.S.BSC3.time
+STA CGG3 time/layer.P.CGG3.time time/layer.S.CGG3.time
+STA CLT3 time/layer.P.CLT3.time time/layer.S.CLT3.time
+STA CMP3 time/layer.P.CMP3.time time/layer.S.CMP3.time
+STA COL3 time/layer.P.COL3.time time/layer.S.COL3.time
+STA CSG3 time/layer.P.CSG3.time time/layer.S.CSG3.time
+STA LIO3 time/layer.P.LIO3.time time/layer.S.LIO3.time
+STA MNT3 time/layer.P.MNT3.time time/layer.S.MNT3.time
+STA NSC3 time/layer.P.NSC3.time time/layer.S.NSC3.time
+STA PGN3 time/layer.P.PGN3.time time/layer.S.PGN3.time
+STA PST3 time/layer.P.PST3.time time/layer.S.PST3.time
+STA RDM3 time/layer.P.RDM3.time time/layer.S.RDM3.time
+STA RSA3 time/layer.P.RSA3.time time/layer.S.RSA3.time
+STA RSF3 time/layer.P.RSF3.time time/layer.S.RSF3.time
+STA SCL3 time/layer.P.SCL3.time time/layer.S.SCL3.time
+STA SFL3 time/layer.P.SFL3.time time/layer.S.SFL3.time
+STA SNR3 time/layer.P.SNR3.time time/layer.S.SNR3.time
+STA SRN3 time/layer.P.SRN3.time time/layer.S.SRN3.time
+STA STN3 time/layer.P.STN3.time time/layer.S.STN3.time
+STA TEO3 time/layer.P.TEO3.time time/layer.S.TEO3.time
+STA VDP3 time/layer.P.VDP3.time time/layer.S.VDP3.time
+STA VDS3 time/layer.P.VDS3.time time/layer.S.VDS3.time
+
+
+PICK AND3 1.286
+PICK AVG3 4.001
+PICK BEL3 3.939
+PICK BSC3 0
+PICK CGG3 7.164
+PICK CLT3 1.143
+PICK CMP3 7.266
+PICK COL3 5.286
+PICK CSG3 1.796
+PICK LIO3 3.082
+PICK MNT3 4.654
+PICK NSC3 4.041
+PICK PGN3 6.736
+PICK PST3 5.613
+PICK RDM3 0.817
+PICK RSA3 0.306
+PICK RSF3 3.47
+PICK SCL3 3.837
+PICK SFL3 3.368
+PICK SNR3 5.368
+PICK SRN3 8.287
+PICK STN3 8.45
+PICK TEO3 3.286
+PICK VDP3 5.96
+PICK VDS3 2.552
+
+FIRST BSC3
+
+TNOW 0.00
+#DELTA 0.20
+DELTA 1.00
+ENDTIME 15.00
+MAXRMS 30
+
+SUM 1
+POW 1
+SIGMA 0.5
+PROBTHRESHOLD 10
+
+OUTFILE run01.rtloc/out
+RUN run01
+
+#SEARCH GRID
+#SEARCH OCT 10 10 3 0.01 10000 0
+#SEARCH OCT 10 10 3 0.05 10000 0
+SEARCH OCT 10 10 4 0.5 10000 1

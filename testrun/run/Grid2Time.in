@@ -1,0 +1,89 @@
+# =============================================================================
+# =============================================================================
+# Grid2Time control file statements
+# =============================================================================
+#
+#
+
+# input, output filename root
+# (GTFILES <input file root> <output file root> wave_type (P, S))
+#
+#
+# 3D
+GTFILES  ./model/layer  ./time/layer P
+#GTFILES  ./model/layer  ./time/layer S
+
+
+# time grid modes
+# (GTMODE grid_mode, angle_mode)
+#    (char[])   grid_mode (GRID3D, GRID2D)
+#    (char[])   angle_mode (ANGLES_YES, ANGLES_NO)
+#
+GTMODE GRID3D ANGLES_NO
+
+# source description (multiple sources can be specified)
+# (GTSRCE  label  x_srce  y_srce   z_srce   elev)
+#
+#    (char[])   label
+#
+#    (char[])   loc type (XYZ, LATLON (+/-dec deg), LATLONDM (deg, dec min))
+#  XYZ---------------      LATLON/LATLONDM--------
+#  x_srce : km pos E   or  lat   : pos N
+#  y_srce : km pos N   or  long  : pos E
+#  z_srce : km pos DN  or  depth : pos DN
+#
+#    elev : km pos UP
+#
+# Examples:
+#
+#GTSRCE  STA   XYZ  	27.25  -67.78  0.0  1.242
+#GTSRCE  CALF  LATLON  	43.753  6.922  0.0  1.242
+#GTSRCE  JOU  LATLONDM  43 38.00 N  05 39.52 E   0.0   0.300
+#
+GTSRCE AND3 LATLON 40.92975000 15.33310998 0 0
+GTSRCE AVG3 LATLON 40.76185925 15.72512738 0 0
+GTSRCE BEL3 LATLON 40.71494445 15.63686111 0 0
+GTSRCE BSC3 LATLON 41.01166669 15.38497216 0 0
+GTSRCE CGG3 LATLON 40.54191667 15.52263882 0 0
+GTSRCE CLT3 LATLON 40.90302786 15.40433328 0 0
+GTSRCE CMP3 LATLON 40.65213891 15.07988882 0 0
+GTSRCE COL3 LATLON 40.68716668 15.33063883 0 0
+GTSRCE CSG3 LATLON 40.81805557 15.46416664 0 0
+GTSRCE LIO3 LATLON 40.89652783 15.18033334 0 0
+GTSRCE MNT3 LATLON 40.83697515 15.00660706 0 0
+GTSRCE NSC3 LATLON 40.84688521 15.12226157 0 0
+GTSRCE PGN3 LATLON 40.57212830 15.79667003 0 0
+GTSRCE PST3 LATLON 40.56022227 15.24330557 0 0
+GTSRCE RDM3 LATLON 40.87538888 15.53602781 0 0
+GTSRCE RSA3 LATLON 41.08788891 15.44238887 0 0
+GTSRCE RSF3 LATLON 40.96274312 15.17508158 0 0
+GTSRCE SCL3 LATLON 40.69502779 15.51161107 0 0
+GTSRCE SFL3 LATLON 40.78891673 15.57827775 0 0
+GTSRCE SNR3 LATLON 40.73619448 15.19258327 0 0
+GTSRCE SRN3 LATLON 40.48636118 15.45680553 0 0
+GTSRCE STN3 LATLON 40.52991666 15.65138893 0 0
+GTSRCE TEO3 LATLON 40.84416672 15.26361109 0 0
+GTSRCE VDP3 LATLON 40.60544446 15.57130558 0 0
+GTSRCE VDS3 LATLON 40.74088895 15.42691664 0 0
+
+
+# Podvin & Lecomte FD params
+# Podvin and Lemcomte, 1991, GJI, 105, 271-284.
+# (PLFD  hs_eps_init  message_flag)
+#    (float) hs_eps_init : fraction (typically 1.0E-3) defining the toler-
+#                          ated model inhomogeneity for exact initialization.
+#                          A tolerance larger than 0.01 will potentially
+#                          create errors larger than those involved by the
+#                          F.D. scheme without any exact initialization.
+#    (int)  message_flag : Message flag (0:silent,1:few messages,2:verbose)
+#                          A negative value inhibits "clever"
+#                          initialization.
+#
+GT_PLFD  1.0e-3  0
+
+#
+#
+# =============================================================================
+# END of Grid2Time control file statements
+# =============================================================================
+# =============================================================================

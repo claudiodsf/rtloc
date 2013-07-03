@@ -1,0 +1,201 @@
+# =============================================================================
+# =============================================================================
+# NLLoc control file statements
+# =============================================================================
+#
+#
+
+# signature
+# (LOCSIG signature)
+LOCSIG Claudio Satriano - RISSC
+
+# comment
+# (LOCCOM comment)
+LOCCOM Irpinia
+
+# input  grid filenames root, output filename
+# (LOCFILES <obs file> obs_type  <travel-time grid files path/root> <output file path/root>)
+#    (char[])  obs_type : (NLLOC_OBS, HYPO71, HYPOELLIPSE, RENASS_DEP, SEISAN)
+#
+LOCFILES ./obs/picks.obs NLLOC_OBS  time/layer  loc/irpinia
+
+# output hypocenter file types
+# (LOCHYPOUT type1, type2, ...)
+#    (char[])   typeN (SAVE_NLLOC_ALL, SAVE_NLLOC_SUM,
+#		SAVE_HYPO71_ALL, SAVE_HYPO71_SUM, SAVE_HYPOELL_ALL, SAVE_HYPOELL_SUM,
+#		SAVE_HYPOINV_SUM)
+LOCHYPOUT SAVE_NLLOC_ALL  SAVE_HYPOINV_SUM
+
+# search type
+# (LOCSEARCH search_type <params>)
+#    (char[])   search_type (GRID, MET (Metropolis), SA (Simulated Annealing))
+#    <params>:
+#	GRID NumScatterSamples
+#	MET  NumSamples NumLearn NumEquil BeginSave NumSkip
+#               StepInit StepMin StepFact ProbMin
+#	OCT init_num_cells_x, init_num_cells_y, init_num_cells_z,
+#		min_node_size, max_num_nodes, num_scatter
+LOCSEARCH  OCT 20 20 5 0.01 20000 5000
+#LOCSEARCH  OCT 80 80 20 0.01 200000 100000
+#GridSearch
+#LOCSEARCH GRID 500
+#LOCSEARCH MET 10000 1000 4000 5000 5 -1 0.01 8.0 1.0e-10
+
+# location grids description
+# (LOCGRID  num_grid_x  num_grid_y  num_grid_z
+#	orig_grid_x  orig_grid_y  orig_grid_z
+#	d_grid_x d_grid_y d_grid_z
+#       type save_flag
+#    (float) num_grid_x/y/z : number of nodes along x/y/z axis
+#    (float)    orig_grid_x : x location of grid origin (0,0,0) in km pos east
+#    (float)    orig_grid_y : y location of grid origin (0,0,0) in km pos north
+#    (float)    orig_grid_z : z location of grid origin (0,0,0) in km pos down
+#    (float)   d_grid_x/y/x : grid spacing along  x/y/z axis
+#    (char[])  type : (PROB_DENSITY, MISFIT)
+#    (char[])  save_flag : (SAVE, NO_SAVE)
+# For Grid search, first grid is used for initial search.  Subsequent grids are
+# shifted in x/y/z so that they are centered on the minimum misfit hypocenter
+# x/y/z of the previous grid if x/y/z < -1.0e20.
+#
+
+#
+LOCGRID 101 101 41  -50.000000 -50.000000 0.000000  1.000000 1.000000 1.000000 PROB_DENSITY SAVE
+ 
+
+
+
+#
+#GridSearch#LOCGRID  51 51 21  -100.0 -100.0 0.0  4.0 4.0 1.0   MISFIT  NO_SAVE
+#GridSearch#LOCGRID  51 51 21  -1.0e30 -1.0e30 0.0  0.5 0.5 1.0   MISFIT  NO_SAVE
+#GridSearch#LOCGRID  81 81 81  -1.0e30 -1.0e30 0.0  0.25 0.25 0.25  PROB_DENSITY  SAVE
+
+# method
+# (LOCMETH method)
+#    (char[])   method (GAU_ANALYTIC)
+#    (float)   maximum_dist_sta_to_grid
+#    (int)   minimum_number_phases for location
+#    (int)   maximum_number_phases for location (-1 for no max)
+#    (int)   minimum_number_S_phases for location (-1 for no min)
+#    (float)   Vp/Vs ratio (< 0.0 to use S travel time grids)
+#    (int)   maximum_number_3D_grids to attempt to read into memory (-1 for no max)
+#"LOCMETHOD:  loc_method, DistStaGridMax, &MinNumArrLoc, &MaxNumArrLoc, &MinNumSArrLoc, VpVsRatio, MaxNum3DGridMemory, DistStaGridMin, iRejectDuplicateArrivals
+#
+#LOCMETH GAU_ANALYTIC 9999.0 4 -1 -1 1.68 6
+#LOCMETH GAU_ANALYTIC 9999.0 -1 -1 -1 1.68 6
+LOCMETH EDT 9999.0 2 -1 -1 1.68 6 -1 0
+
+# fixed origin time
+# (LOCFIXOTIME year month day hour min sec)
+#    (int)   year month day hour min
+#    (float)   sec
+#LOCFIXOTIME 1995 04 21 08 02 57.09
+
+# gaussian model error parameters
+# (LOCGAU Sigma_T (s), CorrLen (km))
+LOCGAU 0.1 0.0
+
+# phase identifier mapping
+# (LOCPHASEID phase  phase_id0 phase_id1 ...)
+#
+# examples for P and S
+#LOCPHASEID  P   P p
+#LOCPHASEID  S   S s
+#
+LOCPHASEID  P   P p G PN PG
+LOCPHASEID  S   S s G SN SG
+#ToIgnoreS
+#LOCPHASEID  S   $
+
+# quality to error mapping (for HYPO71, etc)
+# (LOCQUAL2ERR Err0 Err1 Err2 ... )
+#
+# the following quality mapping is default from Hypoellipse documentation
+#LOCQUAL2ERR 0.1 0.5 1.0 2.0 99999.9
+LOCQUAL2ERR 0.02 0.05 1.0 2.0 3.0
+
+# phase statistics parameters
+# (LOCPHSTAT RMS_Max, NRdgs_Min, Gap_Max, P_ResMax, S_ResMax)
+#    (float)   RMS_Max : max hypocenter RMS to include in ave res
+#    (float)   NRdgs_Min : min hypocenter num readings to include in ave res
+#    (float)   Gap_Max : max hypocenter gap (deg) to include in ave res
+#    (float)   P_ResMax : max abs(P res) to include in ave res
+#    (float)   S_ResMax : max abs(S res) to include in ave res
+#LOCPHSTAT 9999.0 -1 9999.0 1.0 1.0
+LOCPHSTAT 9999.0 -1 9999.0 1.0 1.0 99999 -1 99999
+#LOCPHSTAT 9999.0 -1 100 1.0 1.0
+
+
+# take-off angles mode & minimum quality
+# (LOCANGLES angles_mode, min_quality)
+#    (char[])   angles_mode (ANGLES_YES, ANGLES_NO)
+#    (integer)   min_quality : minimum quality to use take-off angles
+LOCANGLES ANGLES_NO 5
+
+
+# magnitude calculation method
+# (LOCMAG magnitude_type <params>)
+#    (char[])   magnitude_type (ML_HB (ML, Hutton Boore))
+#    <params>:
+#	ML_HB  amp_fact n K
+LOCMAG ML_HB 1.0 1.110 0.00189
+
+# station/inst/comp parameters (for specifying component specific parameters, i.e. constants for magnitude calculation)
+# (LOCCMP name inst comp amp_fact sta_corr)
+#    (char[])   name  : station identifier (after alias evaluation, without trailing underscore "_")
+#    (char[])   name  : inst identifier (use '?' for don't care)
+#    (char[])   name  : comp identifier (use '?' for don't care)
+#    (float)    amp_fact: amplitude factor, will be multiplied by amplitude
+#    (float)    sta_corr: mganitude correction
+#
+# example:
+#
+#LOCCMP CDR ? ? 1.0 0.0
+#
+
+# station name alias (for aliasing sta names, for date validation and for
+#    phase time delays)
+# (LOCALIAS name alias year mo day year mo day)
+#    (char[])   name  : station identifier on input
+#    (char[])   alias : station identifier for travel time grid on output
+#                    NOTE: a trailing underscore "_" in aliases will only be
+#                          used for time grid identification, not for output
+#    (ints)    year mo day : start date of validity (0 0 0 = no start date)
+#    (ints)    year mo day : end date of validity  (9999 99 99 = no end date)
+#
+#   Note:
+#       Alias evaluation is applied recursively, beware of infinite recursion!
+# 	P and S delays from last alias only are used!
+#
+# example:
+#
+#LOCALIAS ART ART_	1996 05 29	1996 09 18   0.03  0.08
+#
+#LOCALIAS SBFX SBF	0 0 0	9999 99 99
+
+# phase exclude
+# (LOCEXCLUDE name phase)
+#    (char[])   name  : station identifier after any alias
+#    (char[])   phase : phase identifier on input
+#LOCEXCLUDE NEGI S
+
+# time delays
+# (LOCDELAY name phase n_readings p_delay s_delay)
+#    (char[])   name  : station identifier on control file statements
+#    (char[])   phase : phase identifier
+#    (int)  n_readings : number of residuals used to calc delay
+#    (float)     delay : delay in seconds, subtracted from obs time
+# 	station identifiers are evaluated after aliases has been evaluated!
+#
+# example:
+#
+#LOCDELAY NEGI P	 1  0.04
+#
+# time corrections
+#INCLUDE loc/irpinia.sum.grid0.loc.stat_totcorr
+
+#
+#
+# =============================================================================
+# END of NLLoc control file statements
+# =============================================================================
+# =============================================================================

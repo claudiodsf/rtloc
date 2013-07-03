@@ -1,0 +1,98 @@
+# =============================================================================
+# =============================================================================
+# Time2EQ control file statements
+# =============================================================================
+#
+#
+
+# input  grid filenames root, output filename
+# (EQFILES <input file root> <output file>)
+#EQFILES /temp/nlloc_tmp/rtloc/time2D/layer ./obs/synth.obs
+EQFILES ./time/layer ./obs/synth.obs
+
+# mechanism (MECH  mech_type (DOUBLE, NONE), strike(E of N), dip, rake)
+EQMECH  DOUBLE 0.0 90.0 0.0
+
+# mode
+# (EQMODE str_mode)
+#   SRCE_TO_STA  calc time for single source to multiple stations
+#   STA_TO_SRCE  calc time for multiple sources to single station
+EQMODE SRCE_TO_STA
+
+# event description
+# (EQEVENT  label  x_event  y_event  z_event  otime
+#    (char[])   label
+#    (float)   x_event : km pos east
+#    (float)   y_event : km pos north
+#    (float)   z_event : km pos down
+#    (float)   otime   : sec
+#
+# events along lines, various depths
+# events along line at az=45, various depths
+EQEVENT  EQ001     0.0 0.0 10.0   000.0
+EQEVENT  EQ002   30.0 30.0 10.0   000.0
+EQEVENT  EQ003   20.0 20.0 10.0   000.0
+EQEVENT  EQ004   40.0 40.0 10.0   000.0
+                                 
+# source description (multiple sources can be specified)
+# (EQSRCE (see GTSRCE)           
+#                                
+#EQSRCE  Centro_rete  XYZ   0 0   12.0 0.0 
+
+# station description (multiple stations can be specified)
+# (EQSTA  label phase  error_type error)
+#    (char[])   label
+#    (char[])   phase
+#    (char[])   calc_error_type
+#    (float)   calc_error
+#    (char[])   report_error_type
+#    (float)   report__error
+EQSTA AND3 P   GAU 0.2   GAU 0.2
+EQSTA AVG3 P   GAU 0.2   GAU 0.2
+EQSTA BEL3 P   GAU 0.2   GAU 0.2
+#EQSTA BENI P   GAU 0.2   GAU 0.2
+EQSTA BSC3 P   GAU 0.2   GAU 0.2
+EQSTA CGG3 P   GAU 0.2   GAU 0.2
+EQSTA CLT3 P   GAU 0.2   GAU 0.2
+EQSTA CMP3 P   GAU 0.2   GAU 0.2
+EQSTA COL3 P   GAU 0.2   GAU 0.2
+EQSTA CSG3 P   GAU 0.2   GAU 0.2
+EQSTA LIO3 P   GAU 0.2   GAU 0.2
+EQSTA LPI3 P   GAU 0.2   GAU 0.2
+EQSTA MNT3 P   GAU 0.2   GAU 0.2
+#EQSTA MSA3 P   GAU 0.2   GAU 0.2
+#EQSTA NAPI P   GAU 0.2   GAU 0.2
+EQSTA NSC3 P   GAU 0.2   GAU 0.2
+EQSTA PCR3 P   GAU 0.2   GAU 0.2
+EQSTA PGN3 P   GAU 0.2   GAU 0.2
+#EQSTA PRG1 P   GAU 0.2   GAU 0.2
+EQSTA PST3 P   GAU 0.2   GAU 0.2
+#EQSTA PTT1 P   GAU 0.2   GAU 0.2
+EQSTA RDM3 P   GAU 0.2   GAU 0.2
+EQSTA RSA3 P   GAU 0.2   GAU 0.2
+EQSTA RSF3 P   GAU 0.2   GAU 0.2
+EQSTA SCL3 P   GAU 0.2   GAU 0.2
+EQSTA SFL3 P   GAU 0.2   GAU 0.2
+EQSTA SNR3 P   GAU 0.2   GAU 0.2
+EQSTA SRN3 P   GAU 0.2   GAU 0.2
+EQSTA SSB3 P   GAU 0.2   GAU 0.2
+EQSTA STN3 P   GAU 0.2   GAU 0.2
+EQSTA TEO3 P   GAU 0.2   GAU 0.2
+EQSTA VDP3 P   GAU 0.2   GAU 0.2
+EQSTA VDS3 P   GAU 0.2   GAU 0.2
+
+
+# Vp / Vs ratio (overrides any S travel-time grids)
+# (EQVPVS VpVs_ratio)
+EQVPVS  1.68
+
+# quality to error mapping (for HYPO71, etc)
+# (EQQUAL2ERR Err0 Err1 Err2 ... )
+EQQUAL2ERR 0.1 0.2 0.4 0.8 99999.9
+
+#
+#
+# =============================================================================
+# END of Time2EQ control file statements
+# =============================================================================
+# =============================================================================

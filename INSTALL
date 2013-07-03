@@ -1,0 +1,9 @@
+RTLoc can be compiled on any platform, provided you have a C compiler
+(e.g. GNU gcc) and GNU Make (http://www.gnu.org/software/make/).
+
+Edit the PREFIX variable in Makefile to choose the installation path.
+Optionally edit the CC variable with the path to your compiler.
+Run
+	make
+then
+	make install

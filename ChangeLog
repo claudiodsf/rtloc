@@ -1,0 +1,60 @@
+RTLoc - Real Time Location for early warning
+(c) 2006-2013 Claudio Satriano <satriano@ipgp.fr>, Anthony Lomax <anthony@alomax.net>
+
+version 0.50 (2013-07-03):
+	* Merged version 0.47 with 0.466
+	* Code modernization: #ifdef header guards
+	                      global variables defined in .c files (no more
+						  EXTERN_TXT)
+	* Code fixes to compile on modern gcc versions
+	* Code fixes to suppress warnings on modern gcc versions
+	* Now creates a ".stations" file
+	* Brand new plotting routines written in Python/Matplotlib !
+	* Complete test case in "testrun"
+
+version 0.47 (2009-??-??):
+	* Unknown Changelog for this version
+
+version 0.466 (2009-05-28):
+	* Large reengineering of many function interfaces
+	* LocStat.c: added "pdfcut" parameter: if(prob/probmax<pdfcut) prob=0
+	* LocStat.c: moved computation of mean hypocenter here
+	* LocStat.c: computation of error ellipsoid
+	* New "utils" dir: stat2ellipse: computes 3D ellipse projection for GMT
+
+version 0.46 (2009-04-12):
+	* OctTreeSearch.c: in funciotn OctTreeSearch(), f_prob_max
+			   and dprob_max have to be init to zero.
+	* rtloc.c: moved CloseGrid3dFile() into the same loop of
+		   OpenGrid3dFile(), to avoid "Too many files open" error.
+	* LocStat.c: added xy, xz and yz inizialization
+	  	     (fixes the bug of full cov computation, thanks to L. Elia) 
+	* LocStat.c: now checks that station[i].pickid >= 0 (not only >)
+		     (fixes Pobs not shown for first station) 
+	* LocStat.c: fixed compiler warning about "dist" not being used
+
+version 0.45 (2008-08-04):
+	* changed variables from (double *) to Vect3D: mean, fhypo, sta (LocStat);
+	* LocStat.c : full cov computation (following T & V, 1982)
+	* LocStat.c : d_log_dist now computed through error propagation
+	* LocStat.c : old code (using the definition of variance) still
+			here, but optimized (moved into the cov loop)
+
+version 0.314 (????-??-??):
+	* SearchEdt.c : only call LocStat if writeToDisk=1
+			(fixes the bug of repeated entries in rtloc.stat)
+	* LocStat.c : tPobs
+	* rtloclib.h : struct Station: int pickid
+	* ReadCtrlFile.c : station[n].pickid
+
+version 0.3 (2007-03-06):
+	* LocStat improved
+	* Moved to GPL and addded disclaimers
+
+version 0.2 (2007-02-14):
+	* Code from version 0.1-AJL
+	* Location statistics and rtloc.out file
+
+version 0.1 (2006-12-20):
+	* Intial version from the rtloc_new_algorithm tree
+	* All the code comments have been translated to English

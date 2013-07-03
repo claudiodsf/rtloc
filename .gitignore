@@ -1,0 +1,20 @@
+#Binary files
+*.o
+*.pyc
+rtloc
+stat2ellipse
+
+#RTLoc outputs
+*.rtloc.log
+*.rtloc.stat
+*.rtloc.stations
+testrun/run01.rtloc
+testrun/run01.pdf
+
+#Grid files
+*.hdr
+*.buf
+
+#Temporary files
+*~
+*.swp
