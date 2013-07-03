@@ -20,7 +20,7 @@ by the intersection of the volume defined by the Voronoi cells for
 the remaining, not-yet-triggered stations and the EDT surfaces
 between all pairs of triggered arrivals.
 
-As time passes and more triggers be- come available, the evolutionary
+As time passes and more triggers become available, the evolutionary
 location converges to a standard EDT location.
 
 
