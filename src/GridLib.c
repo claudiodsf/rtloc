@@ -2399,7 +2399,7 @@ int GetHypLoc(FILE *fpio, const char* filein, HypoDesc* phypo,
     /* open hypocenter file */
 
     if (fpio == NULL) {
-        if ((pstr = strstr(filein, ".hyp")) == NULL
+        if ((pstr = (char *) strstr(filein, ".hyp")) == NULL
                 || ((pstr - filein) < (int) strlen(filein) - 4))
             sprintf(fn_in, "%s.hyp", filein);
         else
