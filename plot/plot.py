@@ -22,13 +22,8 @@
 import os
 from glob import glob
 import numpy as np
-#import matplotlib
-#matplotlib.rcParams['pdf.fonttype'] = 42
-from matplotlib import rc
-rc('text', usetex=True)
-rc('font',**{'family':'sans-serif','sans-serif':['Helvetica']})
-rc('text.latex', preamble='\usepackage{sfmath}')
-#import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.rcParams['pdf.fonttype'] = 42
 from matplotlib import figure
 from matplotlib.backends.backend_agg import FigureCanvasAgg
 from mpl_toolkits.axes_grid1 import make_axes_locatable
@@ -84,8 +79,8 @@ def plot(grd, stationfile=None, statfile=None, data_geog=None, plotdir='.'):
             stations = np.loadtxt(stationfile, dtype = recordtype)
             coords = {}
             for sta in stations:
-                #sta_text = sta[0]
-                sta_text = r'$\textbf{%s}$' % sta[0]
+                sta_text = sta[0]
+                #sta_text = r'$\textbf{%s}$' % sta[0]
                 ax1_xy.text(sta[1], sta[2], sta_text, fontsize=8, fontweight='bold',
                         ha='center', va='center', color='k', clip_on=True)
                 coords[sta[0]] = (sta[1], sta[2])
@@ -106,8 +101,9 @@ def plot(grd, stationfile=None, statfile=None, data_geog=None, plotdir='.'):
                     ax1_xy.plot(segment[:,0], segment[:,1], c='k', linewidth=0.5, clip_on=True)
 
     #time_text = u'δt = %05.2f s' % time
-    time_text = r'$\delta t = %05.2f s$' % time
-    ax1_xy.text(1.05, -0.3, time_text, fontsize=15, color='k', transform=ax1_xy.transAxes)
+    time_text = r'$\mathrm{\mathsf{\delta t = %05.2f s}}$' % time
+    ax1_xy.text(1.05, -0.3, time_text, fontsize=15, fontweight='bold',
+                color='k', transform=ax1_xy.transAxes)
 
     ax1_xy.set_aspect('equal', 'datalim')
 
