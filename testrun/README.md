@@ -59,9 +59,9 @@ then run again:
 Traveltime grid files will be again created in the `time/` dir.
 
 
-Alternatively you can download pre-generated traveltime grids for this
-test case, from the following [link].
-[link]: http://
+Alternatively you can download pre-generated model and 
+traveltime grids for this test case, from the following [link].
+[link]: https://dl.dropboxusercontent.com/u/168727/rtloc_testrun_gridfiles.tgz
 
 
 ## Running the test
