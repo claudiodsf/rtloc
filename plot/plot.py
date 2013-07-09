@@ -3,7 +3,8 @@
 
 # @file plot.py main plotting routine
 # 
-# Copyright (C) 2013 Claudio Satriano <satriano@ipgp.fr>
+# Copyright (C) 2013 Claudio Satriano <satriano@ipgp.fr>,
+#                    Natalia Poiata <poiata@ipgp.fr>
 # This file is part of RTLoc.
 # 
 # RTLoc is free software; you can redistribute it and/or modify
