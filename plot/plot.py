@@ -1,17 +1,17 @@
 #!/usr/bin/env python
-# -*- coding: utf8 -*- 
+# -*- coding: utf8 -*-
 
 # @file plot.py main plotting routine
-# 
+#
 # Copyright (C) 2013 Claudio Satriano <satriano@ipgp.fr>,
 #                    Natalia Poiata <poiata@ipgp.fr>
 # This file is part of RTLoc.
-# 
+#
 # RTLoc is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 2 of the License, or
 # (at your option) any later version.
-# 
+#
 # RTLoc is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -71,7 +71,7 @@ def plot(grd, stationfile=None, statfile=None, data_geog=None, plotdir='.'):
     ax1_xy.xaxis.set_ticks_position('top')
 
     if statfile:
-        trigged, hypo = parse_stat_file(statfile, time) 
+        trigged, hypo = parse_stat_file(statfile, time)
         ax1_xy.scatter(hypo[0], hypo[1], marker='*', s=hypo_smbl_size, linewidths=1, c='w')
 
     if stationfile:
@@ -131,7 +131,6 @@ def plot(grd, stationfile=None, statfile=None, data_geog=None, plotdir='.'):
         ax1_zy.scatter(hypo[2], hypo[1], marker='*', s=hypo_smbl_size, linewidths=1, c='w')
 
     #ax1_zy.set_aspect('equal', 'datalim')
-            
 
 #--ax1_xz
     ax1_xz = divider1.append_axes('bottom', size=xz_size, pad=0.05, sharex=ax1_xy)
@@ -195,12 +194,12 @@ if __name__ == '__main__':
 
     basedir = args[0]
 
-    stationfile = os.path.join(basedir, options.run + '.rtloc.stations') 
-    statfile = os.path.join(basedir, options.run + '.rtloc.stat') 
+    stationfile = os.path.join(basedir, options.run + '.rtloc.stations')
+    statfile = os.path.join(basedir, options.run + '.rtloc.stat')
     data_geog = os.path.join(basedir, 'data_geog')
     plotdir = os.path.join(basedir, plotdir)
 
-    bnames = glob(os.path.join(basedir, options.run + '.rtloc', '*.hdr')) 
+    bnames = glob(os.path.join(basedir, options.run + '.rtloc', '*.hdr'))
     bnames = [ os.path.splitext(bname)[0] for bname in bnames ]
 
     for bname in bnames:

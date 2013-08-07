@@ -1,16 +1,16 @@
-# -*- coding: utf8 -*- 
+# -*- coding: utf8 -*-
 
 # @file NLLGrid.py class for reading NLLoc grid files
-# 
+#
 # Copyright (C) 2013 Claudio Satriano <satriano@ipgp.fr>,
 #                    Natalia Poiata <poiata@ipgp.fr>
 # This file is part of RTLoc.
-# 
+#
 # RTLoc is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 2 of the License, or
 # (at your option) any later version.
-# 
+#
 # RTLoc is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -130,7 +130,7 @@ class NLLGrid():
         return self.get_extent()[0:2] + self.get_extent()[4:]
 
     def get_zx_extent(self):
-        return self.get_extent()[4:] + self.get_extent()[0:2] 
+        return self.get_extent()[4:] + self.get_extent()[0:2]
 
     def get_yz_extent(self):
         return self.get_extent()[2:]
