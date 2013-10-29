@@ -67,6 +67,14 @@ real-time capabilities.
 Feel free to pick the relevant parts of this (GPL licensed) code
 and build your own real-time module!
 
+A real-time implementation of RTLoc --which processes continuous
+seedlink streams-- is available within [PRESTo], a free and open
+source software platform for Earthquake Early Warning developed
+at the [RISSC-Lab], Naples, Italy.
+
+[PRESTo]: http://www.prestoews.org
+[RISSC-Lab]: http://www.rissclab.unina.it
+
 
 ## References
 
