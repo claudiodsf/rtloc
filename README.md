@@ -2,6 +2,8 @@
 (c) 2006-2013 Claudio Satriano <satriano@ipgp.fr>,
 Anthony Lomax <anthony@alomax.net>
 
+[![DOI](https://zenodo.org/badge/3815/claudiodsf/rtloc.png)](http://dx.doi.org/10.5281/zenodo.9855)
+
 
 ## Introduction
 
