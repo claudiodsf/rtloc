@@ -2,8 +2,7 @@
 (c) 2006-2013 Claudio Satriano <satriano@ipgp.fr>,
 Anthony Lomax <anthony@alomax.net>
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.9855.svg)](https://doi.org/10.5281/zenodo.9855)
-
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.591465.svg)](https://doi.org/10.5281/zenodo.591465)
 
 ## Introduction
 
