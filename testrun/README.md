@@ -13,6 +13,7 @@ in the `time/` directory.
 
 Grids are generated using the programs `Vel2Grid` and
 `Grid2Time` from the [NonLinLoc] suite.
+
 [NonLinLoc]: http://alomax.free.fr/nlloc
 
 To generate the P-wave model, run:
@@ -61,6 +62,7 @@ Traveltime grid files will be again created in the `time/` dir.
 
 Alternatively you can download pre-generated model and 
 traveltime grids for this test case, from the following [link].
+
 [link]: https://dl.dropboxusercontent.com/u/168727/rtloc_testrun_gridfiles.tgz
 
 
@@ -93,7 +95,8 @@ This should create PDF plots for each time step in the dir:
     run01.pdf/
 
 Warning: plotting requires Python and [matplotlib].
-[matplotlib]: http://matplotlib.org
+
+[matplotlib]:http://matplotlib.org
 
 
 ## Reset the test
@@ -116,4 +119,5 @@ They can be displayed using [Seismicity Viewer]:
 
 Assuming that you have Java installed and that `SeismicityViewer50.jar`
 (or later version) is in your Java `CLASSPATH`.
+
 [Seismicity Viewer]: http://alomax.free.fr/seismicity
