@@ -85,7 +85,7 @@ at the [RISSC-Lab], Naples, Italy.
 > Real-Time Evolutionary Earthquake Location for Seismic Early Warning.
 > Bull. Seismol. Soc. Am., 98(3), 1482–1494. doi: [10.1785/0120060159].
 
-[10.1785/0120060159]: http://dx.doi.org/10.1785/0120060159
+[10.1785/0120060159]: https://doi.org/10.1785/0120060159
 
 
 ### DISCLAIMER
