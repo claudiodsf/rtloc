@@ -105,13 +105,13 @@ file follows a key-value structure:
 > Real-Time Evolutionary Earthquake Location for Seismic Early Warning.
 > Bull. Seismol. Soc. Am., 98(3), 1482–1494. doi: [10.1785/0120060159].
 
-> Lomax, A. J., & Virieux, P. Volant & Berge, C., 2000.
+> Lomax, A., Virieux, J., Volant, P., Berge, C., 2000.
 > Probabilistic earthquake location in 3D and layered models:
 > introduction of a Metropolis-Gibbs method and comparison with linear locations.
-> Advances in Seismic Event Location, 101-134.
+> Advances in Seismic Event Location, 101-134. doi: [10.1007/978-94-015-9536-0_5]
 
-
-[10.1785/0120060159]: http://dx.doi.org/10.1785/0120060159
+[10.1785/0120060159]: https://doi.org/10.1785/0120060159
+[10.1007/978-94-015-9536-0_5]: https://doi.org/10.1007/978-94-015-9536-0_5
 
 
 Last modified on Wed Jul 3 2013
