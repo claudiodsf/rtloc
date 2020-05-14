@@ -43,9 +43,11 @@ in case you want to copy the executable to your prefix path.
 
 `Grid2Time` program from Anthony Lomax (part of the [NonLinLoc]
 suite) is required to generate traveltime grids.
+
 [NonLinLoc]: http://alomax.free.fr/nlloc
 
 Plotting routines are written in Python and require [matplotlib].
+
 [matplotlib]: http://matplotlib.org
 
 
@@ -82,7 +84,6 @@ at the [RISSC-Lab], Naples, Italy.
 > Satriano, C., Lomax, A., Zollo, A. 2008.
 > Real-Time Evolutionary Earthquake Location for Seismic Early Warning.
 > Bull. Seismol. Soc. Am., 98(3), 1482–1494. doi: [10.1785/0120060159].
-
 
 [10.1785/0120060159]: http://dx.doi.org/10.1785/0120060159
 
