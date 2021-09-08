@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Satriano"
+  given-names: "Claudio"
+  orcid: "https://orcid.org/0000-0002-3039-2530"
+- family-names: "Lomax"
+  given-names: "Anthony"
+  orcid: "https://orcid.org/0000-0002-7747-5990"
+title: "RTLoc - Real Time Location for earthquake early warning"
+doi: 10.5281/zenodo.591465
+url: "https://github.com/claudiodsf/rtloc"
+preferred-citation:
+  type: article
+  authors:
+  - family-names: "Satriano"
+    given-names: "Claudio"
+    orcid: "https://orcid.org/0000-0002-3039-2530"
+  - family-names: "Lomax"
+    given-names: "Anthony"
+    orcid: "https://orcid.org/0000-0002-7747-5990"
+  - family-names: "Zollo"
+    given-names: "Aldo"
+    orcid: "https://orcid.org/0000-0002-8191-9566"
+  doi: "10.1785/0120060159"
+  journal: "Bulletin of the Seismological Society of America"
+  start: 1482 # First page number
+  end: 1494 # Last page number
+  title: "Real-Time Evolutionary Earthquake Location for Seismic Early Warning"
+  issue: 3
+  volume: 98
+  year: 2008
+  month: 6
