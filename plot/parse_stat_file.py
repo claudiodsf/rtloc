@@ -23,22 +23,19 @@ def parse_stat_file(filename, ref_time):
     try:
         fp = open(filename, 'r')
     except IOError:
-        print 'Unable to open file: ' + filename
+        print(f'Unable to open file: {filename}')
         return
 
     triggered = {}
     go = False
-    for line in fp.readlines():
+    for line in fp:
         word = line.split()
         if len(word) == 0:
             continue
 
         if word[0] == 'TIME':
             time = float(word[1])
-            if time == ref_time:
-                go = True
-            else:
-                go = False
+            go = time == ref_time
             continue
 
         if not go:
@@ -47,11 +44,7 @@ def parse_stat_file(filename, ref_time):
         if word[0] == 'STA':
             sta = word[1]
             ptime = float(word[9])
-            if time >= ptime:
-                triggered[sta] = True
-            else:
-                triggered[sta] = False
-
+            triggered[sta] = time >= ptime
         if word[0] == 'HYPOCENTER':
             hypo = (float(word[2]), float(word[4]), float(word[6]))
 
@@ -62,5 +55,5 @@ def parse_stat_file(filename, ref_time):
 if __name__ == '__main__':
     import sys
     trig, hypo = parse_stat_file(sys.argv[1], 0)
-    print trig
-    print hypo
+    print(trig)
+    print(hypo)

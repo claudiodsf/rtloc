@@ -20,17 +20,18 @@
 
 import numpy as np
 
+
 def parse_geo_data(filename):
 
     try:
         fp = open(filename, 'r')
     except IOError:
-        print 'Unable to open file: ' + filename
+        print(f'Unable to open file: {filename}')
         return
 
     segments = []
     segment = []
-    for line in fp.readlines():
+    for line in fp:
         word = line.split()
 
         if word[0] == '>':
@@ -40,7 +41,7 @@ def parse_geo_data(filename):
 
         try:
             segment.append((float(word[0]), float(word[1])))
-        except:
+        except Exception:
             pass
 
     fp.close()
