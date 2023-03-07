@@ -1,20 +1,23 @@
-#Binary files
+# Binary files
 *.o
 *.pyc
 rtloc
 stat2ellipse
 
-#RTLoc outputs
+# RTLoc outputs
 *.rtloc.log
 *.rtloc.stat
 *.rtloc.stations
 testrun/run01.rtloc
 testrun/run01.pdf
 
-#Grid files
+# Grid files
 *.hdr
 *.buf
 
-#Temporary files
+# Temporary files
 *~
 *.swp
+
+# VSCode
+.vscode
